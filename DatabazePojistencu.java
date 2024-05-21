@@ -21,19 +21,22 @@ public class DatabazePojistencu {
      * @param telefon
      */
     public void pridejPojistence(String jmeno, String prijmeni, int vek, String telefon) {
-        pojistenci.add(new Pojistenec(jmeno, prijmeni, vek, telefon));
+        if (!jmeno.isEmpty() && !prijmeni.isEmpty()) {
+            pojistenci.add(new Pojistenec(jmeno, prijmeni, vek, telefon));
+        }
     }
+
 
     /**
      * vypíše všechny pojištěnce
      * @return
      */
     public ArrayList<Pojistenec> vypisPojistence() {
-        ArrayList<Pojistenec> vypsane = new ArrayList<>();
+        ArrayList<Pojistenec> nalezene = new ArrayList<>();
         for (Pojistenec pojistenec : pojistenci) {
-            vypsane.add(pojistenec);
+            nalezene.add(pojistenec);
         }
-        return vypsane;
+        return nalezene;
     }
 
     /**

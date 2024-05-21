@@ -38,9 +38,15 @@ public class UzivatelskeRozhrani {
         String telefon = scanner.nextLine();
         databazePojistencu.pridejPojistence(jmeno, prijmeni, vek, telefon);
         System.out.println();
-        System.out.println("Data byla uložena. Pokračujte klávesou ENTER...");
-        scanner.nextLine();
-        System.out.println();
+        if (jmeno.isEmpty() || prijmeni.isEmpty()) {
+            System.out.println("Jméno nebo příjmení nebylo zadáno. Pokračujte klávesou ENTER...");
+            scanner.nextLine();
+            System.out.println();
+        } else {
+            System.out.println("Data byla uložena. Pokračujte klávesou ENTER...");
+            scanner.nextLine();
+            System.out.println();
+        }
     }
 
     /**
@@ -48,8 +54,13 @@ public class UzivatelskeRozhrani {
      */
     public void vypisPojistence() {
         ArrayList<Pojistenec> pojistenci = databazePojistencu.vypisPojistence();
-        for (Pojistenec pojistenec : pojistenci) {
-            System.out.println(pojistenec);
+        if (pojistenci.size() > 0) {
+            System.out.println("Nalezeny tyto záznamy: ");
+            for (Pojistenec pojistenec : pojistenci) {
+                System.out.println(pojistenec);
+            }
+        } else {
+            System.out.println("Nebyly nalezeny žádné záznamy.");
         }
         System.out.println();
         System.out.println("Pokračujte klávesou ENTER......");
