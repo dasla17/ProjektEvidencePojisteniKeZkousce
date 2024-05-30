@@ -1,0 +1,14 @@
+Ceníme práci na projektu! 🏆 Prohlédli jsme si kód a máme k němu následující poznámky:
+
+1. Pojmenování identifikátorů - ok
+2. Dodržení principů SRP a SoC - ok
+3. Vhodný výběr datových typů - ok
+4. Formátování kódu - ok
+5. Duplicitní kód a nekonečné cykly - Jestli je jméno a příjmení prázdné se konstroluje jak ve třídě DatabazePojistencu tak UzivatelskeRozhrani.
+6. Validace vstupních dat - ok, ovšem bylo by lepší, aby byl uživatel schopen po zadání neplatného vstupu zadat daný vstup znova. Takto se o chybě dozví až na konci procesu přídávání pojištěného a musí ho pak celý opakovat.
+7. Logičnost a složitost - V konkrétním případě to nevadí, ale volání metod v konstruktoru je většinou špatná praxe, metody totiž předpokládají, že je instance již plně "sestavena". Tedy místo volání setterů v konstruktoru inicializuji klasicky this.jmeno = jmeno,...
+                         - Metoda vypisPojistence() nakopíruje ArrayList pojistenci do ArrayListu nalezené, mohu namísto toho vrátit rovnou ArrayList pojistenci. Pokud bych chtěl vracet kvůli zapouzdření spíše kopii, lze využít konstruktor ArrayListu: return new ArrayList<>(pojistenci);
+8. Komentáře - ok
+9. Celkové hodnocení - Kód splňuje zadání a je dobře strukturovaný. Doporučil bych refaktorizaci podle rad výše.
+
+Doporučujeme případné výtky v kódu opravit, abyste jej mohli pak prezentovat budoucímu zaměstnavateli v co nejlepší kvalitě. Pokud byste potřebovali s čímkoli pomoci, naplánujte si s námi konzultaci, rádi vám poradíme!
